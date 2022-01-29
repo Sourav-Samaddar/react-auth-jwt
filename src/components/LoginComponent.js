@@ -21,8 +21,10 @@ export default class LoginComponent extends Component {
         }
         UserService.login(loginDetails).then(res => {
             console.log("JWT:"+res.data);
+            let userName = this.state.userName;
+            console.log("UserName:"+userName);
             localStorage.setItem("JWTToken",res.data);
-            this.props.history.push('/');
+            this.props.history.push(`/after-login/${userName}`);
         }).catch(err => {
             console.log("error:"+err);
         });

@@ -7,14 +7,15 @@ export default class HomeComponent extends Component {
         super(props)
     
         this.state = {
-             user:{}
+             user:{},
+             userName: this.props.match.params.userName
         }
     }
     
 
     componentDidMount() {
         let user = {
-            "userName":"sourav"
+            "userName":this.state.userName
         }
         UserService.getUserDetails(user).then(res => {
             console.log("Hello user:"+res.data.email)

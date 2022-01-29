@@ -19,6 +19,12 @@ function App() {
                           <HomeComponent {...props}/>
                         </div>
                       } /> 
+                      <Route path='/after-login/:userName' render={props =>
+                        <div>
+                          <NavigationComponent {...props}/>
+                          <HomeComponent {...props}/>
+                        </div>
+                      } />
                       <Route path="/login" component={LoginComponent}/>
                       <Route path="/register" component={RegisterComponent}/>
                   </Switch>

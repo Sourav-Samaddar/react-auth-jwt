@@ -6,7 +6,8 @@ export default class NavigationComponent extends Component {
         super(props)
     
         this.state = {
-             user: {}
+             user: {},
+             userName: this.props.match.params.userName
         }
     }
 
@@ -21,8 +22,9 @@ export default class NavigationComponent extends Component {
     }
 
     componentDidMount() {
+        console.log("Navigation Component did mount:"+this.state.userName)
         let user = {
-            "userName":"sourav"
+            "userName":this.state.userName
         }
         UserService.getUserDetails(user).then(res => {
             console.log("Hello user navigation:"+res.data.email)
